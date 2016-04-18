@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -78,8 +79,9 @@ public class Analysis {
 
 		@Override
 		public String toString() {
-			return t.NUMBER + ", " + rankAv + ", " + rankMin + ", " + rankMax
-					+ ", " + confidence;
+			DecimalFormat df = new DecimalFormat("#.###");
+			return t.NUMBER + ", " + df.format(rankAv) + ", " + rankMin + ", "
+					+ rankMax + ", " + df.format(confidence);
 		}
 
 	}
