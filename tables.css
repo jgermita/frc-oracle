@@ -8,13 +8,16 @@ html *
 
 body {
 background-color: WhiteSmoke;
-text-align: center;
 width: 99%;
 }
 
 h1 {
 font-size: 65%;
 font-style: italic;
+}
+
+p {
+text-align: center;
 }
 
 
