@@ -7,7 +7,7 @@ html *
     background-color: #780003;
     color: white;
 }
-.button {
+button {
     background-color: #780003; /* Green */
     border: none;
     color: white;
