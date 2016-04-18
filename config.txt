@@ -1,0 +1,8 @@
+# number of iterations of event simulations
+iterations = 100
+
+# how to calculate OPR
+# 0 - Most Recent
+# 1 - Best
+# 2 - Weighted average(more recent events are weighted more)
+oprMode = 0
