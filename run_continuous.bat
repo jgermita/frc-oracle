@@ -5,10 +5,10 @@ set BRANCH = "origin gh-pages"
 :loop
 color cf
 
-rem java -jar schedsim2016.jar calb
+java -jar schedsim2016.jar calb
 java -jar schedsim2016.jar idbo
-rem java -jar schedsim2016.jar nvlv
-rem java -jar schedsim2016.jar cave
+java -jar schedsim2016.jar nvlv
+java -jar schedsim2016.jar cave
 
 %GIT_PATH% add -A
 %GIT_PATH% commit -am "%date% %time% JPG"
