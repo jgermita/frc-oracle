@@ -154,19 +154,23 @@ public class SchedSim {
 				sim.update(rankings);
 			}
 
-			PrintWriter pw = new PrintWriter(event + "_predictions.csv",
+			PrintWriter pw = new PrintWriter(event + "_predictions.html",
 					"UTF-8");
 
 			System.out.println("\nResults: ");
-			pw.println("team, avg, max, min, confidence");
+			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\frc-oracle\"tables.css\"></head>");
+			pw.println("<table border=\"1\"><TR id=\"headers\"><td>team<td>avg<td>max<td>min<td>confidence<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
 					"\t"));
 
 			for (Analysis.AnalyzedTeam t : sim.teams) {
 				System.out.println(t.toString().replace(", ", "\t"));
-				pw.println(t.toString());
+				pw.print("<TR id=\"data\"><td>");
+				pw.println(t.toString().replace(", ", "<td>"));
 			}
+
+			pw.println("</table>");
 
 			pw.close();
 
