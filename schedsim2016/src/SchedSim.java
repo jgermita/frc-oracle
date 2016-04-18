@@ -162,6 +162,13 @@ public class SchedSim {
 
 			System.out.println("\nResults: ");
 			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"></head>");
+
+			DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+			Date dateobj = new Date();
+
+			pw.println("<body>Event: " + event + "<br>Last Updated: "
+					+ df.format(dateobj) + "<br>");
+
 			pw.println("<table border=\"1\"><TR id=\"headers\"><td>Team<td>Average Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
@@ -173,13 +180,8 @@ public class SchedSim {
 				pw.println(t.toString().replace(", ", "<td>"));
 			}
 
-			pw.println("</table>");
+			pw.println("</table></body>");
 
-			DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-			Date dateobj = new Date();
-
-			pw.println("<footer>Last Updated: " + df.format(dateobj)
-					+ "</footer>");
 
 			pw.close();
 
