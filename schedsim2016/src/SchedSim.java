@@ -163,7 +163,7 @@ public class SchedSim {
 			System.out.println("\nResults: ");
 			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"></head>");
 
-			DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+			DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			Date dateobj = new Date();
 
 			pw.println("<body>Event: " + event + "<br>Last Updated: "
