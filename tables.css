@@ -54,6 +54,7 @@ button {
     display: inline-block;
     font-size: 90%;
 	width: 48%;
+border: 2px solid WhiteSmoke;
 	border-radius: 8px;
 }
 
