@@ -7,10 +7,9 @@ html *
 }
 
 body {
-
 background-color: WhiteSmoke;
-width: 95%;
 margin: auto;
+width: 95%;
 }
 @viewport {
     width: extend-to-zoom 980px;
