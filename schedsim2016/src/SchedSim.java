@@ -1,6 +1,9 @@
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -159,7 +162,7 @@ public class SchedSim {
 
 			System.out.println("\nResults: ");
 			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"></head>");
-			pw.println("<table border=\"1\"><TR id=\"headers\"><td>team<td>avg<td>max<td>min<td>confidence<br>");
+			pw.println("<table border=\"1\"><TR id=\"headers\"><td>Team<td>Average Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
 					"\t"));
@@ -171,6 +174,12 @@ public class SchedSim {
 			}
 
 			pw.println("</table>");
+
+			DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+			Date dateobj = new Date();
+
+			pw.println("<footer>Last Updated: " + df.format(dateobj)
+					+ "</footer>");
 
 			pw.close();
 
