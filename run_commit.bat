@@ -6,6 +6,6 @@ echo committing
 git add *
 git commit -m "%date% %time% JPG"
 echo pushing
-cd "C:\curl\"
+rem cd "C:\curl\"
 git push origin gh-pages
 echo done. 
