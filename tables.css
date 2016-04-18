@@ -4,7 +4,10 @@ html *
    
    max-width: device-width !important;
    
-       background-color: WhiteSmoke;
+}
+
+body {
+background-color: WhiteSmoke;
 }
 @viewport {
     width: extend-to-zoom 980px;
