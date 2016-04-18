@@ -8,7 +8,7 @@ html *
 
 body {
 background-color: WhiteSmoke;
-align-items: center;
+text-align: center;
 width: 99%;
 }
 @viewport {
