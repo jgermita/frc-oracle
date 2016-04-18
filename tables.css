@@ -7,7 +7,9 @@ html *
 }
 
 body {
+
 background-color: WhiteSmoke;
+margin: auto;
 }
 @viewport {
     width: extend-to-zoom 980px;
@@ -51,3 +53,4 @@ th, td {
 line-height: 200%;
 }
 tr:nth-child(even) {background-color: #f2f2f2}
+
