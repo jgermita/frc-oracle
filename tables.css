@@ -23,7 +23,7 @@ button {
 	font-size
     text-decoration: none;
     display: inline-block;
-    font-size: 75%;
+    font-size: 90%;
 	width: 48%;
 	border: 2px solid white;
 	border-radius: 8px;
@@ -38,7 +38,7 @@ table, th, td {
 }
 
 th, td {
-    padding: 5px;
+    padding: 2px;
     text-align: left;
 }
 
