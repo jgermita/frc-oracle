@@ -8,8 +8,8 @@ html *
 
 body {
 background-color: WhiteSmoke;
-margin: auto;
-width: 95%;
+align-items: center;
+width: 99%;
 }
 @viewport {
     width: extend-to-zoom 980px;
