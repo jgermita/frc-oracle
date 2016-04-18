@@ -1,10 +1,10 @@
 @echo off
-cd "C:\Users\jeremy\Documents\GitHub\frc-oracle"
-REM run.bat
-echo committing
+set GIT_PATH="C:\Program Files\Git\bin\git.exe"
+set BRANCH = "origin gh-pages"
 
-git add *
-git commit -m "%date% %time% JPG"
-echo pushing
-git push origin gh-pages
-echo done. 
+%GIT_PATH% add -A
+%GIT_PATH% commit -am "Auto-committed on %date%"
+%GIT_PATH% pull %BRANCH%
+%GIT_PATH% push %BRANCH%
+
+pause.
