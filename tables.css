@@ -4,6 +4,11 @@ html *
    
    max-width: device-width !important;
 }
+@viewport {
+    width: extend-to-zoom 980px;
+    min-zoom: 1;
+    max-zoom: 5;
+}
 
 #headers {
     background-color: #780003;
