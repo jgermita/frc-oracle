@@ -11,6 +11,11 @@ background-color: WhiteSmoke;
 text-align: center;
 width: 99%;
 }
+
+h1 {
+font-size: 75%;
+font-style: italic;
+}
 @viewport {
     width: extend-to-zoom 980px;
     min-zoom: 1;
@@ -27,7 +32,6 @@ button {
     color: white;
     padding: 15px 32px;
     text-align: center;
-	font-size
     text-decoration: none;
     display: inline-block;
     font-size: 90%;
