@@ -2,6 +2,11 @@
 set GIT_PATH="C:\Program Files\Git\bin\git.exe"
 set BRANCH = "origin gh-pages"
 
+java -jar schedsim2016.jar calb
+java -jar schedsim2016.jar idbo
+java -jar schedsim2016.jar nvlv
+java -jar schedsim2016.jar cave
+
 java -jar schedsim2016.jar arc
 java -jar schedsim2016.jar cur
 java -jar schedsim2016.jar gal
