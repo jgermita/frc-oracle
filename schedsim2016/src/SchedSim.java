@@ -161,7 +161,7 @@ public class SchedSim {
 					"UTF-8");
 
 			System.out.println("\nResults: ");
-			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"></head>");
+			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"></head>");
 			pw.println("<table border=\"1\"><TR id=\"headers\"><td>Team<td>Average Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
