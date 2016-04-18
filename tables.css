@@ -2,8 +2,7 @@ html *
 {
    font-family: Arial !important;
    
-   max-width: 500px;
-    margin: auto;
+   max-width: 500px !important;
 }
 
 #headers {
