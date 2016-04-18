@@ -3,6 +3,8 @@ html *
    font-family: Arial !important;
    
    max-width: device-width !important;
+   
+       background-color: WhiteSmoke;
 }
 @viewport {
     width: extend-to-zoom 980px;
