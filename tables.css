@@ -57,7 +57,13 @@ button {
 border: 2px solid WhiteSmoke;
 	border-radius: 8px;
 }
+table {
+    border-collapse: collapse;
+}
 
+table, th, td {
+    border: 1px solid black;
+}
 
 th, td {
     padding: 8px;
