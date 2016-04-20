@@ -104,7 +104,7 @@ public class Analysis {
 		@Override
 		public String toString() {
 			DecimalFormat df = new DecimalFormat("#.###");
-			return t.NUMBER + ", " + ", " + rankAct + ", " + df.format(rankAv)
+			return t.NUMBER + ", " + rankAct + ", " + df.format(rankAv)
 					+ ", " + rankMin + ", "
 					+ rankMax + ", " + df.format(confidence);
 		}
