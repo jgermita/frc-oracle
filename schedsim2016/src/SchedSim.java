@@ -20,6 +20,8 @@ public class SchedSim {
 
 	public static ConfigFile cfg = new ConfigFile("config.txt");
 
+	public static String rankings = "";
+
 	public static APIv2 getApi() {
 		if (api == null) {
 			APIv2Helper.setAppId("jgermita:schedsim:v0.1");
@@ -35,6 +37,7 @@ public class SchedSim {
 		String event = "2016pncmp";
 
 		System.out.println("Schedule Simulator 2016");
+
 
 		// System.out
 		// .println("\nNotes: \n"
@@ -87,6 +90,17 @@ public class SchedSim {
 				printHelp();
 				continue;
 			}
+
+			rankings = api.fetchEventRankings(event, null).toString();
+			rankings = rankings.replace("[", "\n");
+			rankings = rankings.replace("]", "\n");
+			rankings = rankings.replace("\"", "");
+			rankings = rankings.replace(",\n", "");
+			rankings = rankings.replace("\n\n", "\n");
+			rankings = rankings.replace("\n\n", "\n");
+
+			// System.out.println(rankings);
+
 			System.out.println("\n\nReading data from TBA for: " + event);
 			System.out
 					.println("This can take up to 2 minutes depending on event size...");
@@ -179,7 +193,7 @@ public class SchedSim {
 			pw.println("<body>Event: " + event + "<br>Last Updated: "
 					+ df.format(dateobj) + "<br>");
 
-			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Average Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
+			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Actual Rank<td>Avg Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
 					"\t"));

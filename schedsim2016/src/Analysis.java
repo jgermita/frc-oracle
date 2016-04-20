@@ -43,12 +43,36 @@ public class Analysis {
 		double rankMin = 1.0;
 		double rankMax = 1000.0;
 
+		double rankAct = 0.0;
+
 		double rankAv = 0.0;
 
 		double confidence = 0.0;
 
 		public AnalyzedTeam(TeamData t) {
 			this.t = t;
+
+			String r[] = SchedSim.rankings.split("\n");
+
+			String number = Integer.toString(t.NUMBER);
+
+			for (String s : r) {
+
+				String data[] = s.split(",");
+
+				// System.out.println("l: " + data.length);
+				
+				if (data.length <= 1) {
+					continue;
+				}
+
+				// System.out.println(s);
+
+				if (data[1].equals(number)) {
+					this.rankAct = Integer.parseInt(data[0]);
+				}
+			}
+
 		}
 
 		public void update(double newRank) {
@@ -80,7 +104,8 @@ public class Analysis {
 		@Override
 		public String toString() {
 			DecimalFormat df = new DecimalFormat("#.###");
-			return t.NUMBER + ", " + df.format(rankAv) + ", " + rankMin + ", "
+			return t.NUMBER + ", " + ", " + rankAct + ", " + df.format(rankAv)
+					+ ", " + rankMin + ", "
 					+ rankMax + ", " + df.format(confidence);
 		}
 
