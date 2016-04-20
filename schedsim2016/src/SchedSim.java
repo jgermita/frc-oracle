@@ -149,13 +149,23 @@ public class SchedSim {
 			long startTime = System.currentTimeMillis();
 
 
+			System.out.print("[");
+			int c = 0;
 			for (int i = 0; i < cfg.getIterations(); i++) {
 
 				ev.playMatches();
 				ArrayList<SimulatedEvent.TeamAtEvent> rankings = ev
 						.getRankings();
 				sim.update(rankings);
+
+				if (c > 100) {
+					c = 0;
+					System.out.println("");
+				}
+				System.out.print(".");
+				c++;
 			}
+			System.out.println("]");
 
 			PrintWriter pw = new PrintWriter(event + "_predictions.html",
 					"UTF-8");
