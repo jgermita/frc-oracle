@@ -161,7 +161,7 @@ public class SchedSim {
 					"UTF-8");
 
 			System.out.println("\nResults: ");
-			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"></head>");
+			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"><script src=\"\\frc-oracle\\sorttable.js\"></script></head>");
 
 			DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			Date dateobj = new Date();
@@ -169,7 +169,7 @@ public class SchedSim {
 			pw.println("<body>Event: " + event + "<br>Last Updated: "
 					+ df.format(dateobj) + "<br>");
 
-			pw.println("<table border=\"1\"><TR id=\"headers\"><td>Team<td>Average Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
+			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Average Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
 					"\t"));
@@ -209,9 +209,12 @@ public class SchedSim {
 		
 		int c = 0;
 
+		System.out.print("[");
 		for(Team t : list) {
 			answer.add(new TeamData((t.getTeam_number())));
+			System.out.print(".");
 		}
+		System.out.println("]");
 		
 		return answer;
 	}
