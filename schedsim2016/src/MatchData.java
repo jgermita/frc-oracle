@@ -12,6 +12,8 @@ public class MatchData implements Comparable {
 	private Match m = null;
 	private ArrayList<TeamData> teams = null;
 
+	boolean played = false;
+
 
 	public MatchData(Match m) {
 
@@ -58,6 +60,8 @@ public class MatchData implements Comparable {
 		redBonus = Math.max(redBonus % 2, 0);
 		double blueBonus = (b1.RP_PER_MATCH + b2.RP_PER_MATCH + b3.RP_PER_MATCH) / 3.0;
 		blueBonus = Math.max(blueBonus % 2, 0);
+
+		played = !m.getScore_breakdown().toString().equals("null");
 		/*
 		 * System.out.println("Red alliance:");
 		 * System.out.println(r1.toString()); System.out.println(r2.toString());
@@ -74,11 +78,12 @@ public class MatchData implements Comparable {
 		 */
 	}
 
+
 	public boolean isPlayed() {
 
 		// System.out.println(m.getScore_breakdown().toString());
 
-		return !m.getScore_breakdown().toString().equals("null");
+		return played;
 
 	}
 

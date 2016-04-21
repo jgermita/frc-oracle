@@ -40,8 +40,8 @@ public class Analysis {
 
 		int count = 0;
 		double rankSum = 0.0;
-		double rankMin = 1.0;
-		double rankMax = 1000.0;
+		int rankMin = 1;
+		int rankMax = 1000;
 
 		double rankAct = 0.0;
 
@@ -77,15 +77,15 @@ public class Analysis {
 
 		public void update(double newRank) {
 			if (newRank < rankMax)
-				rankMax = newRank;
+				rankMax = (int) newRank;
 			if (newRank > rankMin)
-				rankMin = newRank;
+				rankMin = (int) newRank;
 
 			count++;
 			rankSum += newRank;
 
 			rankAv = rankSum / count;
-			confidence = 1 - ((rankMin - rankAv) / rankMax);
+
 		}
 
 		public double getAverage() {
@@ -106,7 +106,7 @@ public class Analysis {
 			DecimalFormat df = new DecimalFormat("#.###");
 			return t.NUMBER + ", " + rankAct + ", " + df.format(rankAv)
 					+ ", " + rankMin + ", "
-					+ rankMax + ", " + df.format(confidence);
+ + rankMax;
 		}
 
 	}

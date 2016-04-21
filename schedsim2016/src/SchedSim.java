@@ -193,7 +193,7 @@ public class SchedSim {
 			pw.println("<body>Event: " + event + "<br>Last Updated: "
 					+ df.format(dateobj) + "<br>");
 
-			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Actual Rank<td>Avg Rank<td>Max Rank<td>Min Rank<td>Confidence<br>");
+			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Actual Rank<td>Avg Rank<td>Max Rank<td>Min Rank<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
 					"\t"));
