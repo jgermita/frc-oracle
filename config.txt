@@ -1,5 +1,5 @@
 # number of iterations of event simulations
-iterations = 2
+iterations = 100
 
 # how to calculate OPR
 # 0 - Most Recent

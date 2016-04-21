@@ -235,10 +235,14 @@ public class SchedSim {
 
 		System.out.print("[");
 		for(Team t : list) {
+			System.out.print("#");
+		}
+		System.out.print("]\r");
+		System.out.print("[");
+		for (Team t : list) {
 			answer.add(new TeamData((t.getTeam_number())));
 			System.out.print(".");
 		}
-		System.out.println("]");
 		
 		return answer;
 	}

@@ -43,7 +43,7 @@ public class Analysis {
 		int rankMin = 1;
 		int rankMax = 1000;
 
-		double rankAct = 0.0;
+		int rankAct = 0;
 
 		double rankAv = 0.0;
 
