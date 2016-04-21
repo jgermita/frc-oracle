@@ -91,6 +91,9 @@ public class SchedSim {
 				continue;
 			}
 
+			DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+			Date dateobj = new Date();
+
 			rankings = api.fetchEventRankings(event, null).toString();
 			rankings = rankings.replace("[", "\n");
 			rankings = rankings.replace("]", "\n");
@@ -114,11 +117,16 @@ public class SchedSim {
 			System.out.println("\nInput team data: ");
 			System.out.println("team, avg RP/Match, opr");
 			//data.println("team, avg RP/Match, opr");
+
+			data.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"><script src=\"\\frc-oracle\\sorttable.js\"></script></head>");
+			data.println("<body>Event: " + event + "<br>Last Updated: "
+					+ df.format(dateobj) + "<br>");
 			data.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Avg Rp/Match<td>OPR<td><br>");
 			for (TeamData t : teams) {
 				System.out.println(t.toString());
 				data.print("<TR id=\"data\"><td>");
-				data.println(t.toString().replace(", ", "<td>"));
+				data.println(t.toString().replace(", ", "<td>")
+						.replace("frc", ""));
 			}
 			data.println("</table></body>");
 			data.close();
@@ -188,8 +196,7 @@ public class SchedSim {
 			System.out.println("\nResults: ");
 			pw.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"\\frc-oracle\\tables.css\"><meta name=\"viewport\" content=\"width=device-width, user-scalable=no\"><script src=\"\\frc-oracle\\sorttable.js\"></script></head>");
 
-			DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-			Date dateobj = new Date();
+
 
 			pw.println("<body>Event: " + event + "<br>Last Updated: "
 					+ df.format(dateobj) + "<br>");
