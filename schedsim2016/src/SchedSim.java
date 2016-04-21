@@ -163,27 +163,20 @@ public class SchedSim {
 			long startTime = System.currentTimeMillis();
 
 
-			System.out.print("[");
-			for (int i = 0; i < 10; i++) {
-				System.out.println(".");
-			}
-			System.out.println("]\r");
+
 			int c = 0;
 			for (int i = 0; i < cfg.getIterations(); i++) {
+				System.out.print("        \r");
+				System.out.print("[");
 
 				ev.playMatches();
 				ArrayList<SimulatedEvent.TeamAtEvent> rankings = ev
 						.getRankings();
 				sim.update(rankings);
 
-				if (c > 100) {
-					c = 0;
-					System.out.println("");
-				}
-				System.out.print("-");
-				c++;
+				System.out.print(((double) i) / ((double) cfg.getIterations())
+						+ "%]");
 			}
-			System.out.println("]");
 
 			PrintWriter pw = new PrintWriter(event + "_predictions.html",
 					"UTF-8");
@@ -241,7 +234,7 @@ public class SchedSim {
 		for(Team t : list) {
 			System.out.print(".");
 		}
-		System.out.print("]\r");
+		System.out.print("] " + list.size() + " Teams\r");
 		System.out.print("[");
 		for (Team t : list) {
 			answer.add(new TeamData((t.getTeam_number())));
