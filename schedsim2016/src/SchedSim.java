@@ -107,17 +107,20 @@ public class SchedSim {
 			teams = getTeamList(event);
 			System.out.println("Team list parsed... Parsing Matches now...");
 
-			PrintWriter data = new PrintWriter(event + "_data.csv");
+			PrintWriter data = new PrintWriter(event + "_data.html");
 
 
 			Collections.sort(teams);
 			System.out.println("\nInput team data: ");
 			System.out.println("team, avg RP/Match, opr");
-			data.println("team, avg RP/Match, opr");
+			//data.println("team, avg RP/Match, opr");
+			data.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Avg Rp/Match<td>OPR<td><br>");
 			for (TeamData t : teams) {
 				System.out.println(t.toString());
-				data.println(t.toString());
+				data.print("<TR id=\"data\"><td>");
+				data.println(t.toString().replace(", ", "<td>"));
 			}
+			data.println("</table></body>");
 			data.close();
 
 			System.out.println("\n\n");
