@@ -174,7 +174,8 @@ public class SchedSim {
 						.getRankings();
 				sim.update(rankings);
 
-				System.out.print(((double) i) / ((double) cfg.getIterations())
+				System.out.print(100.0 * ((double) i)
+						/ ((double) cfg.getIterations())
 						+ "%]");
 			}
 
