@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -276,7 +277,9 @@ public class TeamData implements Comparable {
 	}
 
 	public String toString() {
-		return id + ", " + this.RP_PER_MATCH + ", " + this.OPR;
+		DecimalFormat df = new DecimalFormat("#.###");
+		return id + ", " + df.format(this.RP_PER_MATCH) + ", "
+				+ df.format(this.OPR);
 	}
 
 }
