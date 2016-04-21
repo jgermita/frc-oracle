@@ -125,8 +125,15 @@ public class SchedSim {
 			for (TeamData t : teams) {
 				System.out.println(t.toString());
 				data.print("<TR id=\"data\"><td>");
-				data.println(t.toString().replace(", ", "<td>")
-						.replace("frc", ""));
+				String tString[] = t.toString().split(",");
+				tString[0] = "<a href=\"http://www.thebluealliance.com/team/"
+						+ tString[0] + ">" + tString[0].replace("frc", "")
+						+ "</a>";
+
+				for (String s : tString) {
+					data.println("<td>" + s);
+				}
+
 			}
 			data.println("</table></body>");
 			data.close();
