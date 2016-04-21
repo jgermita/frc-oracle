@@ -217,7 +217,15 @@ public class SchedSim {
 			for (Analysis.AnalyzedTeam t : sim.teams) {
 				System.out.println(t.toString().replace(", ", "\t"));
 				pw.print("<TR id=\"data\"><td>");
-				pw.println(t.toString().replace(", ", "<td>"));
+				String tString[] = t.toString().split(",");
+				tString[0] = tString[0].replace("frc", "");
+				tString[0] = "<a href=\"http://www.thebluealliance.com/team/"
+						+ tString[0] + "\">" + tString[0] + "</a>";
+
+				for (String s : tString) {
+					pw.println(s + "<td>");
+				}
+
 			}
 
 			pw.println("</table></body>");
