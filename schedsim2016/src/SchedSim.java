@@ -209,7 +209,8 @@ public class SchedSim {
 			pw.println("<body>Event: " + event + "<br>Last Updated: "
 					+ df.format(dateobj) + "<br>");
 			pw.println("<button onclick=\"location.href='/frc-oracle/" + event
-					+ "_data.html'\">OPR Data</button><br>");
+					+ "_data.html'\">OPR Data</button><button onclick=\"location.href='http://www.thebluealliance.com/event/"
+					+ event + "'\">TBA Event</button><br>");
 
 			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Actual Rank<td>Avg Rank<td>Max Rank<td>Min Rank<br>");
 
