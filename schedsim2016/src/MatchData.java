@@ -20,6 +20,7 @@ public class MatchData implements Comparable {
 		this.m = m;
 		this.NUMBER = (m.getMatch_number());
 		handleMatch();
+
 	}
 	
 	public MatchData(int number, int b1, int b2, int b3, int r1, int r2, int r3) {
@@ -30,6 +31,7 @@ public class MatchData implements Comparable {
 		this.r1 = SchedSim.getTeam("frc" + r1);
 		this.r2 = SchedSim.getTeam("frc" + r2);
 		this.r3 = SchedSim.getTeam("frc" + r3);
+		played = false;
 	}
 	
 	private void handleMatch() {
