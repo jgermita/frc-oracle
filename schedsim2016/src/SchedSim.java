@@ -1,16 +1,16 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 import com.plnyyanks.tba.apiv2.APIv2Helper;
 import com.plnyyanks.tba.apiv2.interfaces.APIv2;
 import com.plnyyanks.tba.apiv2.models.Match;
-import com.plnyyanks.tba.apiv2.models.Team;
 
 public class SchedSim {
 
@@ -21,6 +21,8 @@ public class SchedSim {
 	public static ConfigFile cfg = new ConfigFile("config.txt");
 
 	public static String rankings = "";
+
+	static String event = "2016pncmp";
 
 	public static APIv2 getApi() {
 		if (api == null) {
@@ -34,7 +36,6 @@ public class SchedSim {
 	public static void main(String args[]) throws Exception {
 		api = getApi();
 
-		String event = "2016pncmp";
 
 		System.out.println("Schedule Simulator 2016");
 
@@ -141,14 +142,14 @@ public class SchedSim {
 
 			System.out.println("\n\n");
 
-			ArrayList<Match> matches = getMatchSchedule(event);
-			ArrayList<MatchData> quals = new ArrayList<MatchData>();
+			// ArrayList<Match> matches = getMatches();
+			ArrayList<MatchData> quals = getMatches();
 
-			for (Match m : matches) {
-				if (m.getComp_level().toString().equals("qm")) {
-					quals.add(new MatchData(m));
-				}
-			}
+			// for (Match m : matches) {
+			// if (m.getComp_level().toString().equals("qm")) {
+			// quals.add(new MatchData(m));
+			// }
+			// }
 			Collections.sort(quals);
 
 			System.out
@@ -255,22 +256,38 @@ public class SchedSim {
 		
 		ArrayList<TeamData> answer = new ArrayList<TeamData>();
 		
-		
-		List<Team> list = api.fetchEventTeams(eventCode, null);
-		
-		int c = 0;
-
-		System.out.print("[");
-		for(Team t : list) {
-			System.out.print(".");
+		//
+		// List<Team> list = api.fetchEventTeams(eventCode, null);
+		//
+		// int c = 0;
+		//
+		// System.out.print("[");
+		// for(Team t : list) {
+		// System.out.print(".");
+		// }
+		// System.out.print("] " + list.size() + " Teams\r");
+		// System.out.print("[");
+		// for (Team t : list) {
+		// answer.add(new TeamData((t.getTeam_number())));
+		// System.out.print("-");
+		// }
+		// System.out.println("]");
+		//
+		//
+		//
+		try { 
+			FileReader fr = new FileReader(event + "_teams.csv");
+			BufferedReader br = new BufferedReader(fr);
+			
+			String line = "";
+			
+			while((line = br.readLine()) != null) {
+				answer.add(new TeamData(Integer.parseInt(line.split(",")[0])));
+				System.out.print(".");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		System.out.print("] " + list.size() + " Teams\r");
-		System.out.print("[");
-		for (Team t : list) {
-			answer.add(new TeamData((t.getTeam_number())));
-			System.out.print("-");
-		}
-		System.out.println("]");
 		
 		return answer;
 	}
@@ -283,6 +300,30 @@ public class SchedSim {
 
 		return answer;
 
+	}
+
+	public static ArrayList<MatchData> getMatches() {
+
+		ArrayList<MatchData> answer = new ArrayList<MatchData>();
+
+		try {
+			FileReader fr = new FileReader(event + "_schedule.csv");
+			BufferedReader br = new BufferedReader(fr);
+
+			String line = "";
+
+			while ((line = br.readLine()) != null) {
+				String d[] = line.split(",");
+				answer.add(new MatchData(Integer.parseInt(d[3]), Integer
+						.parseInt(d[6]), Integer.parseInt(d[7]), Integer
+						.parseInt(d[8]), Integer.parseInt(d[9]), Integer
+						.parseInt(d[10]), Integer.parseInt(d[11])));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return answer;
 	}
 
 	public static TeamData getTeam(String id) {

@@ -22,6 +22,16 @@ public class MatchData implements Comparable {
 		handleMatch();
 	}
 	
+	public MatchData(int number, int b1, int b2, int b3, int r1, int r2, int r3) {
+		this.NUMBER = number;
+		this.b1 = SchedSim.getTeam("frc" + b1);
+		this.b2 = SchedSim.getTeam("frc" + b2);
+		this.b3 = SchedSim.getTeam("frc" + b3);
+		this.r1 = SchedSim.getTeam("frc" + r1);
+		this.r2 = SchedSim.getTeam("frc" + r2);
+		this.r3 = SchedSim.getTeam("frc" + r3);
+	}
+	
 	private void handleMatch() {
 		APIv2 api = SchedSim.getApi();
 
