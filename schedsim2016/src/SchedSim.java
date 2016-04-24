@@ -213,7 +213,7 @@ public class SchedSim {
 					+ "_data.html'\">OPR Data</button><button onclick=\"location.href='http://www.thebluealliance.com/event/"
 					+ event + "'\">TBA Event</button><br>");
 
-			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Actual Rank<td>Avg Rank<td>Max Rank<td>Min Rank<br>");
+			pw.println("<table border=\"1\" class=\"sortable\"><TR id=\"headers\"><td>Team<td>Actual Rank<td>Avg Rank<td>Max Rank<td>Min Rank<td>Mode<br>");
 
 			System.out.println("team, avg, max, min, confidence".replace(", ",
 					"\t"));

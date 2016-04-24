@@ -1,6 +1,9 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Vector;
+
+import org.apache.commons.math3.stat.StatUtils;
 
 
 public class Analysis {
@@ -11,6 +14,7 @@ public class Analysis {
 		for (TeamData t : teamsIn) {
 			this.teams.add(new AnalyzedTeam(t));
 		}
+
 	}
 	
 	public void update(ArrayList<SimulatedEvent.TeamAtEvent> rankings) {
@@ -75,7 +79,11 @@ public class Analysis {
 
 		}
 
+		private Vector<Double> ranks = new Vector<Double>();
+
 		public void update(double newRank) {
+			ranks.add(new Double(newRank));
+
 			if (newRank < rankMax)
 				rankMax = (int) newRank;
 			if (newRank > rankMin)
@@ -86,6 +94,16 @@ public class Analysis {
 
 			rankAv = rankSum / count;
 
+		}
+
+		public int getMode() {
+			double data[] = new double[ranks.size()];
+
+			for (int i = 0; i < ranks.size(); i++) {
+				data[i] = ranks.get(i).doubleValue();
+			}
+
+			return (int) StatUtils.min(StatUtils.mode(data));
 		}
 
 		public double getAverage() {
@@ -106,7 +124,7 @@ public class Analysis {
 			DecimalFormat df = new DecimalFormat("#.###");
 			return t.NUMBER + ", " + rankAct + ", " + df.format(rankAv)
 					+ ", " + rankMin + ", "
- + rankMax;
+ + rankMax + ", " + getMode();
 		}
 
 	}

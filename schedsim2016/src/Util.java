@@ -1,4 +1,5 @@
 
+
 public class Util {
 
 	/**
@@ -9,5 +10,6 @@ public class Util {
 	public static double rand2() {
 		return Math.min(0.5, (Math.random() * Math.random() * 2) - 1.0);
 	}
+
 
 }
