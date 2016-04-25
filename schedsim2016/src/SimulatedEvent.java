@@ -48,7 +48,7 @@ public class SimulatedEvent {
 
 			double subtract = 2.0;
 			double breach = 40.0;
-			double capture = 75.0;
+				double capture = 90.0;
 			if (bo > ro) {
 				if (ro > breach) {
 					subtract = 1.0;
